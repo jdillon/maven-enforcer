@@ -104,7 +104,7 @@ public class TestRequireEnvironmentVariable
         }
         catch ( EnforcerRuleException e )
         {
-            fail( "This should not throw an exception" );
+            fail( "This should not throw an exception " + e.getMessage() );
         }
     }
 
