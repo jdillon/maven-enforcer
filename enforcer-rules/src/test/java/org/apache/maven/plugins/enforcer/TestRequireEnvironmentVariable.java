@@ -75,7 +75,7 @@ public class TestRequireEnvironmentVariable
      *
      * @throws EnforcerRuleException the enforcer rule exception
      */
-    public void testRuleWithRegex()
+    public void testRuleWithRegexNot()
         throws EnforcerRuleException
     {
         EnforcerRuleHelper helper = EnforcerTestUtils.getHelper();
@@ -96,6 +96,21 @@ public class TestRequireEnvironmentVariable
             // expected to catch this.
         }
 
+    }
+
+    /**
+     * Test rule with regex.
+     *
+     * @throws EnforcerRuleException the enforcer rule exception
+     */
+    public void testRuleWithRegex()
+        throws EnforcerRuleException
+    {
+        EnforcerRuleHelper helper = EnforcerTestUtils.getHelper();
+
+        RequireEnvironmentVariable rule = new RequireEnvironmentVariable();
+        rule.setVariableName( "PATH" );
+
         // can't really predict what a PATH will looks like, just enforce it ain't empty
         rule.setRegex( ".{1,}" );
         try
@@ -107,5 +122,4 @@ public class TestRequireEnvironmentVariable
             fail( "This should not throw an exception " + e.getMessage() );
         }
     }
-
 }
