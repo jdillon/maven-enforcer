@@ -19,9 +19,10 @@ package org.apache.maven.plugins.enforcer;
  * under the License.
  */
 
-import junit.framework.TestCase;
 import org.apache.maven.enforcer.rule.api.EnforcerRuleException;
 import org.apache.maven.enforcer.rule.api.EnforcerRuleHelper;
+
+import junit.framework.TestCase;
 
 /**
  * Unit test for {@link RequireEnvironmentVariable}}
