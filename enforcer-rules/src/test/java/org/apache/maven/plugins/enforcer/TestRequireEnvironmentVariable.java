@@ -123,4 +123,29 @@ public class TestRequireEnvironmentVariable
             fail( "This should not throw an exception " + e.getMessage() );
         }
     }
+
+    /**
+     * Test rule with regex.
+     *
+     * @throws EnforcerRuleException the enforcer rule exception
+     */
+    public void testRuleWithRegexDifferent()
+        throws EnforcerRuleException
+    {
+        EnforcerRuleHelper helper = EnforcerTestUtils.getHelper();
+
+        RequireEnvironmentVariable rule = new RequireEnvironmentVariable();
+        rule.setVariableName( "PATH" );
+
+        // can't really predict what a PATH will looks like, just enforce it ain't empty
+        rule.setRegex( ".+" );
+        try
+        {
+            rule.execute( helper );
+        }
+        catch ( EnforcerRuleException e )
+        {
+            fail( "This should not throw an exception " + e.getMessage() );
+        }
+    }
 }
